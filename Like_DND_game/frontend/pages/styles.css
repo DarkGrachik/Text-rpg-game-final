@@ -1,0 +1,487 @@
+/* Основной контейнер чата */
+#chat-container {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    padding-left: 50px;
+    height: 97vh;
+    width: 85vw;
+    margin-top: -20px;
+    font-family: "Lucida Sans Unicode";
+}
+
+#menu-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 10%; 
+    left: 2%; 
+    height: 80%;
+    width: 25%;
+    font-family: "Lucida Sans Unicode";
+}
+
+/* Окно чата */
+#chat-box {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    /* background-image:url(../img/back_chat.jpg); */
+    border-bottom: 2px solid #8efdfd;
+    font-family: "Lucida Sans Unicode";
+}
+
+/* Сообщения от пользователя и ИИ */
+.user {
+    text-align: right;
+    margin: 5px 0 5px 200px;
+    padding: 5px;
+    background-color: rgba(225, 245, 254, 0.5);
+    border-radius: 5px;
+    /* border: 1px solid #8efdfd; */
+    font-family: "Lucida Sans Unicode";
+}
+
+.ai {
+    text-align: left;
+    margin: 5px 200px 5px 0;
+    padding: 5px;
+    padding-right: 30px;
+    background-color: rgba(241, 248, 233, 0.5);
+    border-radius: 5px;
+    /* border: 1px solid #8efdfd; */
+    font-family: "Lucida Sans Unicode";
+}
+
+/* Контейнер ввода */
+#input-container {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    font-family: "Lucida Sans Unicode";
+}
+
+#message-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-family: "Lucida Sans Unicode";
+}
+
+.button {
+    padding: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+    min-width: 150px;
+    border: 3px solid #8efdfd;
+    background: none;
+    color: #8efdfd;
+    cursor: pointer;
+    box-shadow:0 0 15px #8efdfd,
+    0 0 15px inset #8efdfd;
+    text-shadow:0 0 15px #8efdfd;
+    font-size: 2em;
+    font-family: "Lucida Sans Unicode";
+}
+
+.button_small {
+    padding: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+    min-width: 100px;
+    border: 3px solid #8efdfd;
+    background: none;
+    color: #8efdfd;
+    cursor: pointer;
+    box-shadow:0 0 15px #8efdfd,
+    0 0 15px inset #8efdfd;
+    text-shadow:0 0 15px #8efdfd;
+    font-size: 1.5em;
+    font-family: "Lucida Sans Unicode";
+}
+
+.title_inside{
+    margin-top: 35px;
+    margin-bottom: 5px;
+    font-family: "Lucida Sans Unicode";
+}
+
+.button:hover {
+    border: 3px solid #d7fafa;
+    color: #d7fafa;
+    box-shadow:0 0 15px #d7fafa,
+    0 0 15px inset #d7fafa;
+    text-shadow:0 0 15px #d7fafa;
+    font-family: "Lucida Sans Unicode";
+}
+
+.button_small:hover {
+    border: 3px solid #d7fafa;
+    color: #d7fafa;
+    box-shadow:0 0 15px #d7fafa,
+    0 0 15px inset #d7fafa;
+    text-shadow:0 0 15px #d7fafa;
+    font-family: "Lucida Sans Unicode";
+}
+
+
+/* инфа о персонаже */
+
+::-webkit-scrollbar {
+    width: 0;
+  }
+
+/* .character-container::-webkit-scrollbar-track {
+    background: #f5cdcd !important; 
+    box-shadow: 0 0 2px rgba(0, 0, 0, .2) inset;
+}  
+
+.character-container::-webkit-scrollbar-thumb {
+    background: #e47e7e;
+    background-size: contain;
+    border-radius: 8px;
+    border: 3px solid #f5cdcd;
+}     */
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    padding: 20px;
+    overflow-x: hidden; /* убираем горизонтальный скролл */
+    overflow-y: auto;
+    scrollbar-width: none;
+    font-family: "Lucida Sans Unicode";
+}
+
+h1 {
+    text-align: center;
+    text-shadow:0 0 15px #8efdfd;
+    font-family: "Lucida Sans Unicode";
+    color: #8efdfd;
+    padding-left: 10px;
+}
+
+.character-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 90%;
+    overflow-y: auto;
+    background: transparent;
+    padding: 10px;
+    scrollbar-width: none;
+    font-family: "Lucida Sans Unicode";
+}
+
+.character-field {
+    margin-bottom: 15px;
+    font-family: "Lucida Sans Unicode";
+}
+
+.character-label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #8efdfd;
+    font-family: "Lucida Sans Unicode";
+}
+
+.character-value {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-family: "Lucida Sans Unicode";
+}
+
+.button-container1 {
+    margin-top: auto;
+    display: grid;
+    grid-template-columns: 4fr 6fr;
+    align-items: center;
+    gap: 10px;
+    font-family: "Lucida Sans Unicode";
+}
+
+.button-container2 {
+    margin-top: auto;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    align-items: center;
+    grid-column-start: 2;
+    gap: 10px;
+    font-family: "Lucida Sans Unicode";
+}
+
+.scroll-wrapper {
+    position: relative;
+    width: 100vw;
+    height: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-left: -20px; 
+    font-family: "Lucida Sans Unicode";
+}
+
+.scroll-image {
+    position: absolute;
+    max-width: none;
+    top: -15%;
+    width: 1200px; /* увеличьте до нужного вам размера */
+    height: auto;
+    z-index: -1;
+    pointer-events: none;
+    overflow-x: hidden;
+    font-family: "Lucida Sans Unicode";
+}
+
+.scroll-content {
+    position: absolute;
+    width: 500px;  /* должно быть меньше, чем у свитка */
+    height: 120vh;
+    z-index: 1;
+    padding: 100px 60px 100px 45px; /* сверху слева снизу справа */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    font-family: "Lucida Sans Unicode";
+}
+
+/* Скрытие полос прокрутки */
+.scroll-content::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+.scroll-content {
+    scrollbar-width: none; /* Firefox */
+}
+
+/* Контейнер персонажа */
+.character-container {
+    background: none;
+    padding: 0;
+    box-shadow: none;
+    border-radius: 0;
+    font-family: "Lucida Sans Unicode";
+}
+
+.world-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 90%;
+    overflow-y: auto;
+    background: transparent;
+    padding: 10px;
+    scrollbar-width: none;
+    background: none;
+    padding: 0;
+    box-shadow: none;
+    border-radius: 0;
+    font-family: "Lucida Sans Unicode";
+}
+
+.world-field {
+    margin-bottom: 15px;
+    font-family: "Lucida Sans Unicode";
+}
+
+.world-label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #8efdfd;
+    font-family: "Lucida Sans Unicode";
+}
+
+.world-value {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-family: "Lucida Sans Unicode";
+}
+
+.field {
+    margin-bottom: 15px;
+    font-family: "Lucida Sans Unicode";
+}
+
+.label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #8efdfd;
+    font-family: "Lucida Sans Unicode";
+}
+
+.value {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    width: 90%;
+    font-family: "Lucida Sans Unicode";
+}
+
+.new-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 90%;
+    overflow-y: auto;
+    background: transparent;
+    padding: 10px;
+    scrollbar-width: none;
+    background: none;
+    padding: 0;
+    box-shadow: none;
+    border-radius: 0;
+    font-family: "Lucida Sans Unicode";
+}
+
+/* Добавьте это в ваш файл styles.css */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #1a1a2e;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.modal input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    background-color: #2a2a3a;
+    color: white;
+    border: 1px solid #8efdfd;
+    border-radius: 5px;
+}
+
+/* Добавьте в ваш файл styles.css */
+.custom-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.custom-modal-content {
+    background-color: #1a1a2e;
+    padding: 25px;
+    border-radius: 10px;
+    width: 350px;
+    max-width: 90%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid #8efdfd;
+}
+
+.custom-modal-title {
+    color: #8efdfd;
+    margin-top: 0;
+    text-align: center;
+    text-shadow: 0 0 10px #8efdfd;
+    font-size: 1.5em;
+}
+
+.custom-modal-message {
+    color: #ffffff;
+    margin: 20px 0;
+    line-height: 1.5;
+}
+
+.custom-modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.custom-modal-confirm {
+    background-color: #1a3a5a;
+    border: 2px solid #8efdfd;
+    box-shadow: 0 0 15px #8efdfd;
+}
+
+.custom-modal-cancel {
+    background-color: #5a1a1a;
+    border: 2px solid #fd8e8e;
+    box-shadow: 0 0 15px #fd8e8e;
+}
+
+.custom-modal-confirm:hover {
+    background-color: #2a4a6a;
+    border-color: #d7fafa;
+}
+
+.custom-modal-cancel:hover {
+    background-color: #6a2a2a;
+    border-color: #fad7d7;
+}
+
+.delete-button {
+    border: 2px solid #fd8e8e;
+    color: #fd8e8e;
+    cursor: pointer;
+    box-shadow:0 0 5px #fd8e8e,
+    0 0 5px inset #fd8e8e;
+    text-shadow:0 0 5px #fd8e8e;
+    background-color: transparent;
+    font-size: 2em;
+}
+
+.delete-button:hover {
+    border: 2px solid #fad7d7;
+    color: #fad7d7;
+    box-shadow:0 0 5px #fad7d7,
+    0 0 5px inset #fad7d7;
+    text-shadow:0 0 5px #fad7d7;
+    background-color: transparent;
+}
+
+/* #back-to-characters {
+    display: block;
+    margin: 30px auto 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#back-to-characters:hover {
+    background-color: #45a049;
+} */

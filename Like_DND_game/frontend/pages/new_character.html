@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание персонажа</title>
+    <script src="../characters.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body style="background-image: url(../img/background_dark.png); background-size: cover; background-attachment: fixed;">
+    <div class="scroll-wrapper">
+    <img src="../img/back_page_glow.png" class="scroll-image" alt="Scroll">
+    <div class="scroll-content">
+    <h1 class="title_inside">Создание персонажа</h1>
+    <form id="create-character-form">
+        <div class="new-container" style="max-height:310px">
+        <div class="field">
+        <label for="character-name" class="label">Имя персонажа:</label>
+        <input  class="value" type="text" id="character-name" name="name" required>
+        </div>
+
+        <div class="field">
+        <label for="character-class" class="label">Класс:</label>
+        <input class="value" type="text" id="character-class" name="character_class" required>
+        </div>
+
+        <div class="field">
+        <label for="character-race" class="label">Раса:</label>
+        <input class="value" type="text" id="character-race" name="race" required>
+        </div>
+
+        <div class="field">
+        <label for="strength" class="label">Сила:</label>
+        <input class="value" type="number" id="strength" name="strength" value="0">
+        </div>
+
+        <div class="field">
+        <label for="dexterity" class="label">Ловкость:</label>
+        <input class="value" type="number" id="dexterity" name="dexterity" value="0">
+        </div>
+
+        <div class="field">
+        <label for="constitution" class="label">Телосложение:</label>
+        <input class="value" type="number" id="constitution" name="constitution" value="0">
+        </div>
+
+        <div class="field">
+        <label for="intelligence" class="label">Интеллект:</label>
+        <input class="value" type="number" id="intelligence" name="intelligence" value="0">
+        </div>
+
+        <div class="field">
+        <label for="wisdom" class="label">Мудрость:</label>
+        <input class="value" type="number" id="wisdom" name="wisdom" value="0">
+        </div>
+
+        <div class="field">
+        <label for="charisma" class="label">Харизма:</label>
+        <input class="value" type="number" id="charisma" name="charisma" value="0">
+        </div>
+
+        <div class="field">
+        <label for="level" class="label">Уровень:</label>
+        <input class="value" type="number" id="level" name="level" value="1">
+        </div>
+
+        <div class="field">
+        <label for="appearance" class="label">Внешность:</label>
+        <textarea class="value" id="appearance" name="appearance" rows="3"></textarea>
+        </div>
+
+        <div class="field">
+        <label for="background" class="label">Предыстория:</label>
+        <textarea class="value" id="background" name="background" rows="4"></textarea>
+        </div>
+        </div>
+
+        <div class="button-container1" style="grid-template-columns: 6fr 4fr;">
+        <button type="button" id="generate-character-button" class="button_small">Сгенерировать</button>
+        <button type="button" id="create-character-button" class="button_small">Создать</button>
+        </div>
+        <div class="button-container2">
+        <button type="button" id="back-to-characters" class="button_small" style="grid-column-start: 2;">Назад</button>
+        </div>
+    </form>
+    </div>
+</div>
+</body>
+</html>

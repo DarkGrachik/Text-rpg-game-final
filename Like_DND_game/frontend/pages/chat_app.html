@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Application</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body style="background-image: url(../img/background_chat3.png); background-size: cover; background-attachment: fixed;">
+    <div id="chat-container">
+        <div class="button-container1" style="grid-template-columns: 3.4fr 2fr 2fr 2fr; margin-bottom: 10px;"><button style="grid-column-start: 2;" id="menu-button" class="button">Меню</button>
+        <button style="grid-column-start: 3;" id="chats-button" class="button">Чаты</button></div>
+        <div id="chat-box"></div>
+        <div id="input-container">
+            <input type="text" id="message-input" placeholder="Напиши свое сообщение здесь...">
+            <button id="send-button" class="button">Отправить</button>
+        </div>
+        <div class="button-container2" style="grid-template-columns: 2.2fr 4fr 3.2fr; margin-top: 5px;">
+            <button type="button" id="save-button" class="button" style="grid-column-start: 2;">Сохранить</button>
+            </div>
+    </div>
+    <script src="../renderer.js" defer></script>
+</body>
+</html>

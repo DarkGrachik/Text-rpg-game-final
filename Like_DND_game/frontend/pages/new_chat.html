@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новый чат</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body style="background-image: url(../img/background_dark.png); background-size: cover; background-attachment: fixed;">
+    <div class="scroll-wrapper">
+    <img src="../img/back_page_glow.png" class="scroll-image" alt="Scroll">
+    <div class="scroll-content">
+        <h1 class="title_inside">Создание чата:</h1>
+        <div class="new-container" style="max-height:310px">
+        <div class="field">
+        <label for="new-chat-title" class="label">Название чата:</label>
+        <input class="value" type="text" id="new-chat-title" />
+        </div>
+        <div class="button-container1" style="grid-template-columns: 1fr 1fr;">
+        <button id="create-chat-button" class="button_small">Далее</button>
+        <button id="back-button" class="button_small">Назад</button>
+    </div>
+</div>
+</div>
+
+    <script src="renderer.js" defer></script>
+</body>
+</html>

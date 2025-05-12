@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание мира</title>
+    <script src="../worlds.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body style="background-image: url(../img/background_dark.png); background-size: cover; background-attachment: fixed;">
+    <div class="scroll-wrapper">
+    <img src="../img/back_page_glow.png" class="scroll-image" alt="Scroll">
+    <div class="scroll-content">
+    <h1 class="title_inside">Создание мира</h1>
+    <form id="create-world-form">
+        <div class="new-container" style="max-height:310px">
+        <div class="field">   
+        <label for="world-name" class="label">Название мира:</label>
+        <input class="value" type="text" id="world-name" name="name" required>
+        </div>
+
+        <div class="field">
+        <label for="description" class="label">Описание:</label>
+        <textarea class="value" type="text" id="description" name="description" rows="10"></textarea>
+        </div>
+        </div>
+        <div class="button-container1" style="grid-template-columns: 6fr 4fr;">
+        <button type="button" id="generate-world-button" class="button_small">Сгенерировать</button>
+        <button type="button" id="create-world-button" class="button_small">Создать</button>
+        </div>
+        <div class="button-container2">
+        <button type="button" id="back-to-worlds" class="button_small" style="grid-column-start: 2;">Назад</button>
+    </div>
+    </form>
+    </div>
+    </div>
+</body>
+</html>

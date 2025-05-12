@@ -1,0 +1,11 @@
+{
+    "name": "like_dnd_game",
+    "version": "1.0.0",
+    "main": "frontend/main.js",
+    "scripts": {
+      "start": "electron ."
+    },
+    "dependencies": {
+      "electron": "^latest"
+    }
+  }

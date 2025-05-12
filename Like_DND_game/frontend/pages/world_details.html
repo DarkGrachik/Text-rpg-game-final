@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Информация о мире</title>
+    <script src="../worlds.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body style="background-image: url(../img/background_dark.png); background-size: cover; background-attachment: fixed;">
+    <div class="scroll-wrapper">
+        <img src="../img/back_page_glow.png" class="scroll-image" alt="Scroll">
+        <div class="scroll-content">
+            <h1 class="title_inside">Информация о мире</h1>
+            <div class="world-container" id="world-info">
+        <!-- Здесь будет динамически добавлена информация -->
+            </div>
+            <div class="button-container1">
+                <button id="choose-world" class="button_small" style="display: none;">Выбрать</button>
+                <button id="cancel-new-chat" class="button_small" style="display: none;">Отменить игру</button>
+            </div>
+            <div class="button-container2">
+                <button id="back-to-worlds" class="button_small" style="grid-column-start: 2;">Назад</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
